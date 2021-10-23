@@ -9,54 +9,54 @@ module bracketTop(){
     difference(){
         union(){
             topPlate();
-            translate([0,0,-10]){ //workaround to make make it work short-term
-                rotatedHandleHolder();
-            }
+            rotatedHandleHolder();
         }
-        translate([0,0,-10]){ //workaround to make make it work short-term
-            handleHole();
-        }
+        handleHole();
     }
 }
 
+handleAngle = 20;
+handleHolderOffsetY = -3;
+
 module rotatedHandleHolder(){
     intersection(){
-        rotate([20,0,0]){
+        rotate([handleAngle,0,0]){
             handleHolder();
         }
-        translate([0,-5,50]){
-            cube([100,70,80], center=true);
+        translate([0,0,50]){
+            cube(100, center=true);
         }
     }
 }
 
 module handleHole(){
     radius = 23 / 2;
-    rotate([20,0,0]){
-        translate([0,0,-10]){
-            cylinder(90,radius,radius);
+    rotate([handleAngle,0,0]){
+        translate([0,handleHolderOffsetY,0]){
+            cylinder(200,radius,radius, center=true);
         }
     }
 }
 
 module handleHolder(){
-    translate([0,0,-10]){
-        cylinder(80,15,15);
+    outerRadius = 30/2;
+    translate([0,handleHolderOffsetY,-10]){
+        cylinder(70,outerRadius,outerRadius);
+        fin(0);
+        fin(90);
+        fin(180);
+        fin(270);
     }
-    fin(0);
-    fin(90);
-    fin(180);
-    fin(270);
 }
 
 module fin(zRotation){
-    rotate([0,-18,zRotation]){
+    finAngle = 18;
+    rotate([0,-finAngle,zRotation]){
         translate([18,0,15]){
             cube([20,5,80], center=true);
         }
     }
 }
-
 
 module topPlate(){
     plateHeight = 12;
@@ -85,6 +85,3 @@ module m5countersinkScrew(){
         cylinder(holeHeigth, holeRadius, holeRadius);
     }
 }
-
-
-
