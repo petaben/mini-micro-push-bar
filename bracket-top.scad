@@ -3,9 +3,9 @@ include <bracket-common.scad>;
 
 $fn=50;
 
-topPlateWithHandleHolder();
+bracketTop();
 
-module topPlateWithHandleHolder(){
+module bracketTop(){
     difference(){
         union(){
             topPlate();

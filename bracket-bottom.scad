@@ -2,9 +2,9 @@ include <bracket-common.scad>;
 
 $fn=50;
 
-bottomPlate();
+bracketBottom();
 
-module bottomPlate(){
+module bracketBottom(){
     plateHeight = 12;
     holeX = 50;
     holeY = 0;

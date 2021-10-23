@@ -1,9 +1,14 @@
 $fn=50;
 
-difference(){
-    handPiece();
-    hole();
+handPiece();
+
+module handPiece(){
+    difference(){
+        handPieceShape();
+        hole();
+    }
 }
+
 
 module hole(){
     radius = 23 / 2;
@@ -12,7 +17,7 @@ module hole(){
     }
 }
 
-module handPiece(){
+module handPieceShape(){
     cylinderRadius = 30 / 2;
     cylinder(35, cylinderRadius, cylinderRadius);
     for (i = [0 : 45 : 360]){
